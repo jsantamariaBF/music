@@ -23,6 +23,7 @@
           >
         <h5>Drop your files here</h5>
       </div>
+      <input type='file' multiple @change='upload($event)' />
       <hr class="my-6" />
       <!-- Progess Bars -->
       <div v-for="upload in uploads" :key="upload.name" class="mb-4">
@@ -48,7 +49,7 @@
 </template>
 
 <script>
-import { storage } from '@/includes/firebase';
+import { storage, auth, songsCollection } from '@/includes/firebase';
 
 export default {
   name: 'Upload',
@@ -63,7 +64,7 @@ export default {
     upload($event) {
       this.is_dragover = false;
 
-      const files = [...$event.dataTransfer.files];
+      const files = $event.dataTransfer ? [...$event.dataTransfer.files] : [...$event.target.files];
 
       files.forEach((file) => {
         if (file.type !== 'audio/mpeg') {
@@ -88,18 +89,45 @@ export default {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           this.uploads[uploadIndex].current_progress = progress;
         }, (error) => {
+        // callback function when get error
           this.uploads[uploadIndex].variant = 'bg-red-400';
           this.uploads[uploadIndex].icon = 'fas fa-times';
           this.uploads[uploadIndex].text_class = 'text-red-400';
           console.error(error);
-        }, (success) => {
+        },
+        // callback function when success
+        async () => {
+          const song = {
+            uid: auth.currentUser.uid,
+            display_name: auth.currentUser.displayName,
+            original_name: task.snapshot.ref.name,
+            modified_name: task.snapshot.ref.name,
+            genre: '',
+            comment_count: 0,
+            url: '',
+          };
+
+          song.url = await task.snapshot.ref.getDownloadURL();
+          await songsCollection.add(song);
+
           this.uploads[uploadIndex].variant = 'bg-green-400';
           this.uploads[uploadIndex].icon = 'fas fa-check';
           this.uploads[uploadIndex].text_class = 'text-green-400';
-          console.log(success);
         });
       });
     },
+    /* call a hook before the app is unmounted to cancel tasks
+      and free memory */
+    beforeUnmount() {
+      this.uploads.forEach((upload) => {
+        upload.task.cancel();
+      });
+    },
+    // cancelUpload() {
+    //   this.uploads.forEach((upload) => {
+    //     upload.task.cancel();
+    //   });
+    // },
   },
 
 };
