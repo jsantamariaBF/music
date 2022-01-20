@@ -7,6 +7,7 @@
     <div class="container mx-auto flex items-center">
       <!-- Play/Pause Button -->
       <button
+        @click.prevent='playSong(song)'
         type="button"
         class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full
         focus:outline-none"
@@ -80,10 +81,10 @@
       <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">{{comment.name}}</div>
-        <time>{{comment.datePosted}}}}</time>
+        <time>{{comment.datePosted}}</time>
       </div>
       <p>
-        {{comment.content}}}
+        {{comment.content}}
       </p>
     </li>
   </ul>
@@ -91,7 +92,7 @@
 
 <script>
 import { songsCollection, commentsCollection, auth } from '@/includes/firebase';
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 
 export default {
   name: 'Song',
@@ -126,6 +127,7 @@ export default {
     this.getComments();
   },
   methods: {
+    ...mapActions(['playSong']),
     async addComment(values, { resetForm }) {
       this.comment_in_submission = true;
       this.comment_show_alert = true;
@@ -153,17 +155,22 @@ export default {
       resetForm();
     },
     async getComments() {
-      const snapshots = commentsCollection
+      const snapshots = await commentsCollection
         .where('sid', '==', this.$route.params.id)
         .get();
 
       this.comments = [];
+
+      // snapshots.then((response) => console.log(response));
+
+      // const snapshotsArray = new Array(snapshots);
 
       snapshots.forEach((doc) => [
         this.comments.push({
           docID: doc.id,
           ...doc.data(),
         }),
+        // console.log(this.comments),
       ]);
     },
   },
