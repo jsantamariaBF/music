@@ -19,7 +19,6 @@
     <img class="relative block mx-auto mt-5 -mb-20 w-auto max-w-full"
       src="assets/img/introduction-music.png" />
   </section>
-
   <!-- Main Content -->
   <section class="container mx-auto">
     <div class="bg-white rounded border border-gray-200 relative flex flex-col">
@@ -88,7 +87,6 @@ export default {
         const lastDoc = await songsCollection
           .doc(this.songs[this.songs.length - 1].docID)
           .get();
-        console.log(lastDoc);
         snapshots = await songsCollection
           .orderBy('modified_name')
           .startAfter(lastDoc)
