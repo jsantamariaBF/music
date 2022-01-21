@@ -124,7 +124,6 @@ export default createStore({
       const clickX = payload.clientX - x;
       const percentage = clickX / width;
       const seconds = state.sound.duration() * percentage;
-      console.log('seconds', state.sound.duration());
 
       state.sound.seek(seconds);
 

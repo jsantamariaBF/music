@@ -17,13 +17,15 @@
             </button>
         </div>
         <div v-show='showForm'>
-            <div
-                class="text-white text-center font-bold p-4 mb-4"
-                :class="alert_variant"
-                v-if="show_alert"
-            >
-                {{alert_message}}
-            </div>
+            <transition name='fade' mode='out-in'>
+              <div
+                  class="text-white text-center font-bold p-4 mb-4"
+                  :class="alert_variant"
+                  v-if="show_alert"
+              >
+                  {{alert_message}}
+              </div>
+            </transition>
             <vee-form
                 :validation-schema='schema'
                 :initial-values='song'
@@ -132,6 +134,10 @@ export default {
       this.in_submission = false;
       this.alert_variant = 'bg-green-500';
       this.alert_message = 'Success!';
+
+      setTimeout(() => {
+        this.show_alert = false;
+      }, 3000);
     },
     async deleteSong() {
       const storageRef = storage.ref();
@@ -147,3 +153,18 @@ export default {
 
 };
 </script>
+
+<style>
+  .fade-enter-from {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    transition: all 0.5s linear;
+  }
+
+  .fade-leave-to {
+    transition: all 0.5s linear;
+    opacity: 0;
+  }
+</style>

@@ -26,24 +26,27 @@
       <input type='file' multiple @change='upload($event)' />
       <hr class="my-6" />
       <!-- Progess Bars -->
-      <div v-for="upload in uploads" :key="upload.name" class="mb-4">
-        <!-- File Name -->
-        <div
-          class="font-bold text-sm"
-          :class="upload.text_class"
-          >
-          <i :class='upload.icon'></i>
-          {{ upload.name }}
-        </div>
-        <div class="flex h-4 overflow-hidden bg-gray-200 rounded">
-          <!-- Inner Progress Bar -->
+      <transition-group name='fade' mode='out-in'>
+        <div v-show='!hide_uploaded_song' v-for="upload in uploads" :key="upload.name" class="mb-4">
+          <!-- File Name -->
           <div
-          class="transition-all progress-bar"
-          :style="{width: upload.current_progress + '%' }"
-          :class="upload.variant"
-          ></div>
+            class="font-bold text-sm"
+            :class="upload.text_class"
+            >
+            <i :class='upload.icon'></i>
+            {{ upload.name }}
+          </div>
+          <div class="flex h-4 overflow-hidden bg-gray-200 rounded">
+            <!-- Inner Progress Bar -->
+            <div
+            class="transition-all progress-bar"
+            :style="{width: upload.current_progress + '%' }"
+            :class="upload.variant"
+            >
+            </div>
+          </div>
         </div>
-      </div>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -58,6 +61,7 @@ export default {
       is_dragover: false,
       uploads: [],
       upload_success: false,
+      hide_uploaded_song: false,
     };
   },
   props: ['addSong'],
@@ -117,6 +121,10 @@ export default {
           this.uploads[uploadIndex].variant = 'bg-green-400';
           this.uploads[uploadIndex].icon = 'fas fa-check';
           this.uploads[uploadIndex].text_class = 'text-green-400';
+
+          setTimeout(() => {
+            this.hide_uploaded_song = true;
+          }, 6000);
         });
       });
     },
@@ -136,3 +144,18 @@ export default {
 
 };
 </script>
+
+<style>
+  .fade-enter-from {
+    opacity: 0;
+  }
+
+  .fade-enter-active {
+    transition: all 0.5s linear;
+  }
+
+  .fade-leave-to {
+    transition: all 0.5s linear;
+    opacity: 0;
+  }
+</style>

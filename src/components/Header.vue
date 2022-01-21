@@ -35,6 +35,17 @@
               Logout
               </a>
             </li>
+             <ul class="flex flex-row">
+              <li>
+                  <a
+                    @click.prevent="changeLocale"
+                    class=" text-white px-2"
+                    href="#">
+                    {{currentLocale}}
+                  </a>
+              </li>
+             </ul>
+
           </template>
         </ul>
       </div>
@@ -49,6 +60,9 @@ export default {
   name: 'AppHeader',
   computed: {
     ...mapState(['userLoggedIn']),
+    currentLocale() {
+      return this.$i18n.locale === 'fr' ? 'French' : 'English';
+    },
   },
   methods: {
     ...mapMutations(['toggleAuthModal']),
@@ -61,6 +75,9 @@ export default {
       if (this.$route.name.requiresAuth) {
         this.$router.push({ name: 'home' });
       }
+    },
+    changeLocale() {
+      this.$i18n.locale = this.$i18n.locale === 'fr' ? 'en' : 'fr';
     },
 
     // toggleAuthModal() {
