@@ -34,6 +34,7 @@
     "age": "Âge",
     "confirmPassword": "Confirmez le mot de passe",
     "country": "Pays",
+    "errorMessage": "",
     "name": "Nom"
   },
   "song": {

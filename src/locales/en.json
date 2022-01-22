@@ -34,7 +34,8 @@
     "age": "Age",
     "confirmPassword": "Confirm Password",
     "country": "Country",
-    "name": "Name"
+    "name": "Name",
+    "waitMessage": "Please wait! Your account is being created."
   },
   "song": {
     "comment": {

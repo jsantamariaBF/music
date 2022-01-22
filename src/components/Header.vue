@@ -41,14 +41,14 @@
               {{$t('header.signoutTab')}}
               </a>
             </li>
-            <!-- <li v-if="!userLoggedIn">
+            <li>
               <a
                 @click.prevent="changeLocale"
                 class=" text-black px-2"
                 href="#">
                 {{currentLocale}}
               </a>
-              </li> -->
+              </li>
              <!-- <ul class="flex flex-wrap">
 
              </ul> -->
