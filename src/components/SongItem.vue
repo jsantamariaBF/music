@@ -8,9 +8,9 @@
         ml-2 mr-2 mb-4 py-5 p-10 shadow-2xl"
         :style="{backgroundColor: random_bg_color()}"
         >
-            <div class="text-center py-5 font-bold text-white">
-                {{ song.modified_name }} <br><br>
-                <span class="text-white text-sm">
+            <div class="text-center py-5 font-bold text-white text-md">
+                {{ song.modified_name.toUpperCase() }} <br><br>
+                <span class="text-white text-md">
                     {{ song.display_name }}
                 </span>
                 <router-link

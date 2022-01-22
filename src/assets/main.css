@@ -46,6 +46,20 @@ a:hover {
   margin-top: 25px;
 } 
 
+#uploadButton {
+   cursor: pointer;
+  padding: 0.7rem;
+  /* background-color: #9932CC; */
+  color: white;
+  border-radius: 0.5rem;
+}
+
+#upload-photo {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
 /* .upload-dropbox.upload-dropbox-drag{
   color: #fff;
   background-color: #4c6799;

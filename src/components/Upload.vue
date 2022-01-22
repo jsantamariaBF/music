@@ -23,7 +23,11 @@
           >
         <h5>{{$t('manage.dragBoxText')}}</h5>
       </div>
-      <input type='file' multiple @change='upload($event)' />
+      <div class="mt-5">
+        <label id='uploadButton' class="bg-purple-600 hover:bg-purple-800"
+        for="upload-photo">{{$t('manage.uploadButton')}}</label>
+      </div>
+      <input id="upload-photo" type='file' multiple @change='upload($event)' />
       <hr class="my-6" />
       <!-- Progess Bars -->
       <transition-group name='fade' mode='out-in'>

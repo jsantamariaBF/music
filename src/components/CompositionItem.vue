@@ -56,7 +56,7 @@
                 </div>
                 <button
                     type="submit"
-                    class="py-1.5 mx-2 px-3 rounded text-white bg-purple-600"
+                    class="py-1.5 mx-2 px-3 rounded text-white bg-purple-600 hover:bg-purple-800"
                     :disabled="in_submission"
 
                 >
@@ -66,7 +66,7 @@
                     @click.prevent="showForm = false"
                     :disabled="in_submission"
                     type="button"
-                    class="py-1.5 px-3 rounded text-white bg-gray-600"
+                    class="py-1.5 px-3 rounded text-white bg-gray-600 hover:bg-gray-800"
                     >
                    {{$t('manage.goBackButton')}}
                 </button>

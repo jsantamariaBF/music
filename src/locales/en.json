@@ -26,6 +26,7 @@
     "goBackButton": "Go Back",
     "mySongTitle": "My Songs",
     "submitButton": "Submit",
+    "uploadButton": "Upload a Song",
     "uploadTitle": "Upload"
   },
   "register": {

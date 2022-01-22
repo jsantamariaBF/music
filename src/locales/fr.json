@@ -26,6 +26,7 @@
     "goBackButton": "Retourner",
     "mySongTitle": "Mes chansons",
     "submitButton": "Soumettre",
+    "uploadButton": "Télécharger une chanson",
     "uploadTitle": "Télécharger"
   },
   "register": {
