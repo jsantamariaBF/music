@@ -23,8 +23,9 @@
                 mx-auto player-song-info"
         v-if="currentSong.modified_name"
         >
-          <span class="song-title">{{ currentSong.modified_name }} - Uploaded by </span>
-          <span class="song-artist">{{ currentSong.display_name }}</span>
+          <span class="song-title">
+          {{ currentSong.modified_name }} - {{$t('song.uploadedBy')}} </span>
+          <span class="song-artist">&nbsp;{{ currentSong.display_name }}</span>
         </div>
         <!-- Scrub Container  -->
         <span

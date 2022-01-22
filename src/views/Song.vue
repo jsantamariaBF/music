@@ -60,7 +60,9 @@
                   duration-500 focus:outline-none focus:border-black rounded mb-4"
                 placeholder="Write your comment here">
               </vee-field>
-              <ErrorMessage class="text-red-600 py-1.5" name='comment' />
+              <div class="mb-3">
+                <ErrorMessage class="text-red-600" name='comment' />
+              </div>
               <button
                 :disabled='comment_in_submission'
                 type="submit"
