@@ -22,7 +22,7 @@
                     <p class="text-2xl font-bold">Your Account</p>
                     <!-- Modal Close Button -->
                     <div class="modal-close cursor-pointer z-50" @click.prevent='toggleAuthModal'>
-                        <i class="fas fa-times"></i>
+                        <i class="fas fa-times text-purple-800"></i>
                     </div>
                 </div>
 
@@ -33,8 +33,8 @@
                         class="block rounded py-3 px-4 transition"
                         href="#"
                         @click.prevent="tab = 'login'"
-                        :class="{'hover:text-white text-white bg-blue-600' : tab ==='login',
-                        'hover:text-blue-600' : tab === 'register'}">
+                        :class="{'hover:text-white text-white bg-purple-600' : tab ==='login',
+                        'hover:text-purple-800' : tab === 'register'}">
                             Login
                         </a>
                     </li>
@@ -43,8 +43,8 @@
                         class="block rounded py-3 px-4 transition"
                         href="#"
                         @click.prevent="tab = 'register'"
-                        :class="{'hover:text-white text-white bg-blue-600' : tab ==='register',
-                        'hover:text-blue-600' : tab === 'login'}">
+                        :class="{'hover:text-white text-white bg-purple-600' : tab ==='register',
+                        'hover:text-purple-800' : tab === 'login'}">
                             Register
                         </a>
                     </li>

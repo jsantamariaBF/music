@@ -4,13 +4,8 @@ a {
 
 /* text-yellow-500 */
 a:hover {
-  color: #F59E0B;
+  color: #9932CC;
   text-decoration: none;
-}
-
-.text-orange {
-  color: #F59E0B !important;
-  fill: #F59E0B !important;
 }
 
 .player-scrub, .player-song-info {
@@ -25,28 +20,38 @@ a:hover {
   margin-top: -24px;
 }
 
-.card-header .fa.text-orange,
-.card .card-header .fas.text-orange {
-  color: #ff5e3a;
-  fill: #ff5e3a;
-}
+
 
 .introduction-bg {
-  animation: slide 50s linear infinite;
+  animation: slide 40s linear infinite;
   will-change: background-position;
   z-index: -1;
 }
 
-#playlist li:first-child {
-  padding-top: 25px;
+
+#listSongs {
+  display: inline-block;
+  vertical-align: top;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 0.9rem;
+  transition: all .2s ease-in-out;
 }
 
-.upload-dropbox.upload-dropbox-drag{
-  color: #fff;
-  background-color: #20d862;
-  border-color: #20d862;
-  border-style: solid;
+#listSongs:hover {
+  transform: scale(1.1);
 }
+
+#playlist {
+  margin-top: 25px;
+} 
+
+/* .upload-dropbox.upload-dropbox-drag{
+  color: #fff;
+  background-color: #4c6799;
+  border-color: #7f20d8;
+  border-style: solid;
+} */
 
 input[type="file"]{
   margin-top: 20px;

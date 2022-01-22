@@ -1,18 +1,18 @@
 <template>
   <div class="bg-white rounded border border-gray-200 relative flex flex-col">
     <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-      <span class="card-title">
+      <span class="card-title text-xl">
         Upload
       </span>
-      <i class="fas fa-upload float-right text-green-400 text-2xl"></i>
+      <i class="fas fa-upload float-right text-purple-400 text-2xl"></i>
     </div>
     <div class="p-6">
       <!-- Upload Dropbox -->
       <div
         class="w-full px-10 py-20 rounded text-center cursor-pointer border border-dashed
           border-gray-400 text-gray-400 transition duration-500 hover:text-white
-          hover:bg-green-400 hover:border-green-400 hover:border-solid"
-        :class="{'bg-green-400 border-green-400 border-solid' : is_dragover}"
+          hover:bg-purple-800 hover:border-purple-400 hover:border-solid"
+        :class="{'bg-purple-400 border-purple-400 border-solid' : is_dragover}"
         @drag.prevent.stop=""
         @dragstart.prevent.stop=""
         @dragend.prevent.stop="is_dragover = false"
@@ -69,10 +69,24 @@ export default {
     upload($event) {
       this.is_dragover = false;
 
-      const files = $event.dataTransfer ? [...$event.dataTransfer.files] : [...$event.target.files];
+      const files = $event.dataTransfer
+        ? [...$event.dataTransfer.files]
+        : [...$event.target.files];
 
       files.forEach((file) => {
         if (file.type !== 'audio/mpeg') {
+          return;
+        }
+
+        if (!navigator.onLine) {
+          this.uploads.push({
+            task: {},
+            current_progress: 100,
+            name: file.name,
+            variant: 'bg-red-400',
+            icon: 'fas fa-times',
+            text_class: 'text-red-400',
+          });
           return;
         }
 
@@ -98,6 +112,9 @@ export default {
           this.uploads[uploadIndex].variant = 'bg-red-400';
           this.uploads[uploadIndex].icon = 'fas fa-times';
           this.uploads[uploadIndex].text_class = 'text-red-400';
+          setTimeout(() => {
+            this.hide_uploaded_song = false;
+          }, 3000);
           console.error(error);
         },
         // callback function when success

@@ -46,7 +46,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  linkExactActiveClass: 'text-yellow-500',
+  linkExactActiveClass: 'text-purple-500',
 });
 
 router.beforeEach((to, from, next) => {

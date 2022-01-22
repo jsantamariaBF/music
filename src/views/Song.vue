@@ -2,8 +2,9 @@
   <main>
       <!-- Music Header -->
       <section class="w-full mb-8 py-14 text-center text-white relative">
-        <div class="absolute inset-0 w-full h-full box-border bg-contain music-bg"
-          style="background-image: url(/assets/img/song-header.png)">
+        <div class="bg-gradient-to-r from-purple-500 to-pink-500
+          absolute inset-0 w-full h-full bg-contain introduction-bg"
+        >
         </div>
         <div class="container mx-auto flex items-center">
           <!-- Play/Pause Button -->
@@ -11,7 +12,7 @@
             @click.prevent='playSong(song)'
             type="button"
             class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full
-            focus:outline-none"
+            focus:outline-none hover:bg-gray-200"
           >
             <i class="fas fa-play"></i>
           </button>
@@ -23,7 +24,8 @@
             <div>
                 {{ song.genre }}
             </div>
-            <div class="song-price">{{$n(1, 'currency', 'en')}}</div>
+            <!-- <div class="song-price">{{$n(1, 'currency', 'en')}}</div> -->
+            <div class="song-price">Uploaded by: {{song.display_name}}</div>
           </div>
         </div>
       </section>
@@ -36,7 +38,7 @@
               <!-- Comments ({{ comments.length }}) -->
               {{$t('song.comment.count', {count: comments.length})}}
             </span>
-            <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
+            <i class="fa fa-comments float-right text-purple-400 text-2xl"></i>
           </div>
           <div class="p-6">
           <div
@@ -56,13 +58,13 @@
                 name='comment'
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition
                   duration-500 focus:outline-none focus:border-black rounded mb-4"
-                placeholder="Your comment here...">
+                placeholder="Write your comment here">
               </vee-field>
               <ErrorMessage class="text-red-600 py-1.5" name='comment' />
               <button
                 :disabled='comment_in_submission'
                 type="submit"
-                class="py-1.5 px-3 rounded text-white bg-green-600 block"
+                class="py-1.5 px-3 rounded text-white bg-purple-600 hover:bg-purple-800 block"
               >
                 Submit
               </button>
