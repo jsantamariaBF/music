@@ -25,7 +25,7 @@
                 {{ song.genre }}
             </div>
             <!-- <div class="song-price">{{$n(1, 'currency', 'en')}}</div> -->
-            <div class="song-price">Uploaded by: {{song.display_name}}</div>
+            <div class="song-price">{{$t('song.uploadedBy')}} {{song.display_name}}</div>
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@
                 type="submit"
                 class="py-1.5 px-3 rounded text-white bg-purple-600 hover:bg-purple-800 block"
               >
-                Submit
+                {{$t('song.submitButton')}}
               </button>
             </vee-form>
             <!-- Sort Comments -->
@@ -74,8 +74,8 @@
               v-model='sort'
               class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition
               duration-500 focus:outline-none focus:border-black rounded">
-              <option value="1">Latest</option>
-              <option value="2">Oldest</option>
+              <option value="1">{{$t('song.latestSelect')}}</option>
+              <option value="2">{{$t('song.oldestSelect')}}</option>
             </select>
           </div>
         </div>

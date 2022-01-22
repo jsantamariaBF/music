@@ -13,7 +13,7 @@
     >
     <!-- Email -->
       <div class="mb-3">
-          <label class="inline-block mb-2">Email</label>
+          <label class="inline-block mb-2">{{$t('login.email')}}</label>
           <vee-field
             name="email"
             type="email"
@@ -25,7 +25,7 @@
       </div>
       <!-- Password -->
       <div class="mb-3">
-        <label class="inline-block mb-2">Password</label>
+        <label class="inline-block mb-2">{{$t('login.password')}}</label>
         <vee-field
           name="password"
           type="password"
@@ -40,7 +40,7 @@
               hover:bg-purple-700"
           :disabled="login_in_submission"
           >
-          Submit
+         {{$t('song.submitButton')}}
       </button>
     </vee-form>
 </template>

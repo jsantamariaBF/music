@@ -19,7 +19,7 @@
             <div class="py-4 text-left px-6">
             <!--Title-->
                 <div class="flex justify-between items-center pb-4">
-                    <p class="text-2xl font-bold">Your Account</p>
+                    <p class="text-2xl font-bold">{{$t('auth.yourAccountTitle')}}</p>
                     <!-- Modal Close Button -->
                     <div class="modal-close cursor-pointer z-50" @click.prevent='toggleAuthModal'>
                         <i class="fas fa-times text-purple-800"></i>
@@ -35,7 +35,7 @@
                         @click.prevent="tab = 'login'"
                         :class="{'hover:text-white text-white bg-purple-600' : tab ==='login',
                         'hover:text-purple-800' : tab === 'register'}">
-                            Login
+                            {{$t('auth.loginButton')}}
                         </a>
                     </li>
                     <li class="flex-auto text-center">
@@ -45,7 +45,7 @@
                         @click.prevent="tab = 'register'"
                         :class="{'hover:text-white text-white bg-purple-600' : tab ==='register',
                         'hover:text-purple-800' : tab === 'login'}">
-                            Register
+                            {{$t('auth.registerButton')}}
                         </a>
                     </li>
                 </ul>

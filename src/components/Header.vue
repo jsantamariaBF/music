@@ -16,33 +16,39 @@
           <!-- Navigation Links -->
           <li  v-if="!userLoggedIn">
             <a class="px-2 text-black" href="#" @click.prevent='toggleAuthModal'>
-                Login / Register
+              {{$t('header.loginRegister')}}
             </a>
+             <a
+                @click.prevent="changeLocale"
+                class=" text-black px-2"
+                href="#">
+                {{currentLocale}}
+              </a>
           </li>
           <template v-else>
             <li>
               <router-link class="px-2 text-black" :to="{name: 'about'}">
-                About
+                {{$t('header.aboutTab')}}
               </router-link>
             </li>
              <li>
               <router-link class="px-2 text-black" :to="{name: 'manage'}">
-                Manage
+                {{$t('header.manageTab')}}
               </router-link>
             </li>
             <li>
               <a @click.prevent='signout' class="px-2 text-black" href="#">
-              Logout
+              {{$t('header.signoutTab')}}
               </a>
             </li>
-            <li>
-                  <a
-                    @click.prevent="changeLocale"
-                    class=" text-black px-2"
-                    href="#">
-                    {{currentLocale}}
-                  </a>
-              </li>
+            <!-- <li v-if="!userLoggedIn">
+              <a
+                @click.prevent="changeLocale"
+                class=" text-black px-2"
+                href="#">
+                {{currentLocale}}
+              </a>
+              </li> -->
              <!-- <ul class="flex flex-wrap">
 
              </ul> -->
@@ -62,7 +68,7 @@ export default {
   computed: {
     ...mapState(['userLoggedIn']),
     currentLocale() {
-      return this.$i18n.locale === 'fr' ? 'French' : 'English';
+      return this.$i18n.locale === 'fr' ? 'English' : 'French';
     },
   },
   methods: {

@@ -34,7 +34,7 @@
                 @submit='edit'
                 >
                 <div class="mb-3">
-                    <label class="inline-block mb-2">Song Title</label>
+                    <label class="inline-block mb-2">{{$t('manage.editSongTitle')}}</label>
                     <vee-field
                         @input='updateUnsavedFlag(true)'
                         name='modified_name'
@@ -45,7 +45,7 @@
                 <ErrorMessage class="text-red-500" name="modified_name" />
                 </div>
                 <div class="mb-3">
-                <label class="inline-block mb-2">Genre</label>
+                <label class="inline-block mb-2">{{$t('manage.editSongTitle')}}</label>
                 <vee-field
                     name="genre"
                     type="text"
@@ -60,7 +60,7 @@
                     :disabled="in_submission"
 
                 >
-                    Submit
+                   {{$t('manage.submitButton')}}
                 </button>
                 <button
                     @click.prevent="showForm = false"
@@ -68,7 +68,7 @@
                     type="button"
                     class="py-1.5 px-3 rounded text-white bg-gray-600"
                     >
-                    Go Back
+                   {{$t('manage.goBackButton')}}
                 </button>
             </vee-form>
         </div>

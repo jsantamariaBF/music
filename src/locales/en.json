@@ -1,14 +1,48 @@
 {
+  "auth": {
+    "loginButton": "Login",
+    "registerButton": "Register",
+    "yourAccountTitle": "Your Account"
+  },
+  "header": {
+    "aboutTab": "About",
+    "loginRegister": "Login / Register",
+    "manageTab": "Manage",
+    "signoutTab": "Sign out"
+  },
   "home": {
-    "listen": "Upload and share your Music!"
+    "listen": "Upload and share your Music!",
+    "songTitle": "Songs",
+    "subText": "Share with your friends the music you like and make comments!"
+  },
+  "login": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "manage": {
+    "dragBoxText": "Drop your files here",
+    "editSongTitle": "Song Title",
+    "genreEditSong": "Genre",
+    "goBackButton": "Go Back",
+    "mySongTitle": "My Songs",
+    "submitButton": "Submit",
+    "uploadTitle": "Upload"
   },
   "register": {
     "TOS": "Terms of Service",
-    "accept": "I accept Music's {0}"
+    "accept": "I accept Music's {0}",
+    "age": "Age",
+    "confirmPassword": "Confirm Password",
+    "country": "Country",
+    "name": "Name"
   },
   "song": {
     "comment": {
       "count": "{count} Comments"
-    }
+    },
+    "latestSelect": "Latest",
+    "oldestSelect": "Oldest",
+    "submitButton": "Submit",
+    "uploadedBy": "Uploaded By: "
   }
 }

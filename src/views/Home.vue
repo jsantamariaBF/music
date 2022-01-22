@@ -10,7 +10,7 @@
         <div class="text-white main-header-content">
           <h1 class="font-bold text-5xl mb-5">{{$t('home.listen')}}</h1>
           <h3 class="w-full md:w-8/12 mx-auto text-2xl">
-            Share with your friends the music you like and make comments!
+            {{$t('home.subText')}}
           </h3>
         </div>
       </div>
@@ -19,7 +19,8 @@
     <section class="container mx-auto">
       <div class="bg-white rounded border border-gray-200 relative flex flex-col">
         <div v-icon class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-          <span class="card-title text-xl">Songs</span>
+          <span class="card-title text-xl">
+          {{$t('home.songTitle')}}</span>
           <!-- Icon -->
         </div>
         <!-- Playlist -->
@@ -32,7 +33,6 @@
           >
           </SongItem>
         </ol>
-
         <!-- .. end Playlist -->
       </div>
     </section>

@@ -24,7 +24,7 @@
   </div>
   <!-- Email -->
   <div class="mb-3">
-      <label class="inline-block mb-2">Email</label>
+      <label class="inline-block mb-2">{{$t('login.email')}}</label>
       <vee-field
       name="email"
       type="email"
@@ -35,7 +35,7 @@
   </div>
   <!-- Age -->
   <div class="mb-3">
-      <label class="inline-block mb-2">Age</label>
+      <label class="inline-block mb-2">{{$t('register.age')}}</label>
       <vee-field
       name="age"
       type="number"
@@ -45,7 +45,7 @@
   </div>
   <!-- Password -->
   <div class="mb-3">
-      <label class="inline-block mb-2">Password</label>
+      <label class="inline-block mb-2">{{$t('login.password')}}</label>
       <vee-field
           name="password"
           :bails="false"
@@ -65,7 +65,7 @@
   </div>
   <!-- Confirm Password -->
   <div class="mb-3">
-      <label class="inline-block mb-2">Confirm Password</label>
+      <label class="inline-block mb-2">{{$t('register.confirmPassword')}}</label>
       <vee-field
       name="confirm_password"
       type="password"
@@ -76,7 +76,7 @@
   </div>
   <!-- Country -->
   <div class="mb-3">
-      <label class="inline-block mb-2">Country</label>
+      <label class="inline-block mb-2">{{$t('register.country')}}</label>
       <vee-field
       as="select"
       name="country"
@@ -106,7 +106,7 @@
       class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition
       hover:bg-purple-700"
       :disabled="reg_in_submission">
-      Submit
+      {{ $t('manage.submitButton')}}
   </button>
   </vee-form>
 </template>

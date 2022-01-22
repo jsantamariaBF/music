@@ -1,14 +1,48 @@
 {
+  "auth": {
+    "loginButton": "Connexion",
+    "registerButton": "S'inscrire",
+    "yourAccountTitle": "Votre compte"
+  },
+  "header": {
+    "aboutTab": "Sur",
+    "loginRegister": "Connexion ou Inscription",
+    "manageTab": "Faire en sorte",
+    "signoutTab": "Se déconnecter"
+  },
   "home": {
-    "listen": "Écoutez de la bonne musique !"
+    "listen": "Écoutez de la bonne musique !",
+    "songTitle": "Chanson",
+    "subText": "Partagez avec vos amis la musique que vous aimez et faites des commentaires !"
+  },
+  "login": {
+    "email": "E-mail",
+    "password": "Mot de passe"
+  },
+  "manage": {
+    "dragBoxText": "Déposez vos fichiers ici",
+    "editSongTitle": "Titre de la chanson",
+    "genreEditSong": "Genre",
+    "goBackButton": "Retourner",
+    "mySongTitle": "Mes chansons",
+    "submitButton": "Soumettre",
+    "uploadTitle": "Télécharger"
   },
   "register": {
-    "TOS": "",
-    "accept": ""
+    "TOS": "Conditions d'utilisation",
+    "accept": "J'accepte les {0} de Musique",
+    "age": "Âge",
+    "confirmPassword": "Confirmez le mot de passe",
+    "country": "Pays",
+    "name": "Nom"
   },
   "song": {
     "comment": {
-      "count": ""
-    }
+      "count": "{count} commentaires"
+    },
+    "latestSelect": "Dernier",
+    "oldestSelect": "Le plus ancien",
+    "submitButton": "Soumettre",
+    "uploadedBy": "Telechargé par:"
   }
 }
