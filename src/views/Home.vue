@@ -18,7 +18,8 @@
     <!-- Main Content -->
     <section class="container mx-auto">
       <div class="bg-white rounded border border-gray-200 relative flex flex-col">
-        <div v-icon class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
+        <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
+          <i class="fa fa-headphones-alt float-right text-purple-600 text-2xl"></i>
           <span class="card-title text-xl">
           {{$t('home.songTitle')}}</span>
           <!-- Icon -->

@@ -20,7 +20,7 @@ const db = firebase.firestore();
 const storage = firebase.storage();
 
 db.enablePersistence().catch((error) => {
-  console.log(`Firebase persistance error ${error}`);
+  console.error(`Firebase persistance error ${error}`);
 });
 
 const usersCollection = db.collection('users');
