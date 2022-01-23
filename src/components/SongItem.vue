@@ -9,7 +9,7 @@
         :style="{backgroundColor: random_bg_color()}"
         >
             <div class="text-center py-5 font-bold text-white text-md">
-                {{ song.modified_name.toUpperCase() }} <br><br>
+                {{ nameFormated() }} <br><br>
                 <span class="text-white text-md">
                     {{ song.display_name }}
                 </span>
@@ -19,7 +19,9 @@
                 v-slot="{ navigate }">
                     <div
                     @click.prevent='navigate'
-                    class="text-white text-xl text-center"><br>
+                    class="text-white text-xl text-center"
+                    >
+                    <br>
                         <span class="comments">
                             <i class="fa fa-comments text-white "></i>
                             {{ song.comment_count }}
@@ -37,12 +39,17 @@ export default {
   props: ['song'],
   methods: {
     random_bg_color() {
-      const x = Math.floor(Math.random() * 256);
-      const y = Math.floor(Math.random() * 256);
-      const z = Math.floor(Math.random() * 256);
-      const bgColor = `rgb(${x},${y},${z})`;
+      const x = Math.floor(100 + Math.random() * 155);
+      const y = Math.floor(100 + Math.random() * 50);
+      const z = Math.floor(150 + Math.random() * 50);
+      const bgColor = `rgb(${x},${y},${z}`;
 
       return bgColor;
+    },
+    nameFormated() {
+      const getName = this.song.modified_name;
+      const name = getName.split('.');
+      return name[0].toUpperCase();
     },
   },
 };
